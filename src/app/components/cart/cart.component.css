@@ -1,0 +1,12 @@
+.wrapper{
+    gap: 20px;
+    padding: 0px 0px;
+}
+.cart{
+    flex: 8.9;
+    background-color: white;
+}
+.total-cart-price{
+    background-color: white;
+    flex: 3.1;
+}

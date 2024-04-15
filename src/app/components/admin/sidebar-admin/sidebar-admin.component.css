@@ -1,0 +1,13 @@
+.contain-sidebar-admin{
+    height: 100vh;    
+    background-color: antiquewhite;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+}
+.accordion{
+    margin-top: 1rem;
+}
+.accordion-button{
+    font-size: 1.6rem;
+}

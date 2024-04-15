@@ -1,0 +1,35 @@
+<div class="dashboard d-flex fd">
+    <div class="header-admin">
+        List user
+    </div>
+    <div class="user-admin" *ngIf="users">
+     
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Password</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Created</th>
+                <th colspan="2" scope="col">Action</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users, index as i">
+                <th scope="row">{{i + 1}}</th>
+                <td style="width: 100px;" class="fs-5" appEllipsis [maxLength]="20">{{user.userName}}</td>               
+                <td appEllipsis [maxLength]="10">{{user.password}}.000đ</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.createdAt}}</td>
+                <td routerLink="/admin/user/{{user._id}}/edit" class="edit">Edit</td>
+                <td class="delete" (click)="handleDelete(user._id)">Delete</td>
+              </tr>
+             
+            </tbody>
+          </table>
+    </div>
+</div>

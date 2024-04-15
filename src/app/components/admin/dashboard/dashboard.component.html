@@ -1,0 +1,38 @@
+<div class="dashboard d-flex fd">
+    <div class="header-admin">
+        Home
+    </div>
+    <div class="product-admin" *ngIf="products">
+     <input style="margin: 10px 0;padding-left: 10px;" placeholder="Search" type="text" [(ngModel)]="searchText">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>
+                <th scope="col">Author</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Sale</th>
+                <th colspan="2" scope="col">Action</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products | search:searchText, index as i">
+                <th scope="row">{{i + 1}}</th>
+                <td style="width: 160px;" class="fs-5" appEllipsis [maxLength]="20">{{product.name}}</td>
+                <td><img width="40" src={{product.img}} alt=""></td>
+                <td>{{product.price}}.000đ</td>
+                <td>{{product.author}}</td>
+                <td>{{product.desc}}</td>
+                <td>{{product.sale}}</td>
+                <td>{{product._id}}</td>
+                <td routerLink="/admin/product/{{product._id}}/edit" class="edit">Edit</td>
+                <td class="delete" (click)="handleDelete(product._id)">Delete</td>
+              </tr>
+             
+            </tbody>
+          </table>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="dashboard d-flex fd">
+    <div class="header-admin">
+        Add product
+    </div>
+    <div class="product-admin">
+        <form (ngSubmit)="onHandleSubmit()" [formGroup]="productForm">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input formControlName="name" type="text" class="form-control"  aria-describedby="emailHelp">
+              <div class="error"
+              *ngIf="
+              productForm?.get('name')?.hasError('required') && 
+              (productForm?.get('name')?.touched||productForm?.get('name')?.dirty)
+              "
+              >
+                 Trường bắt buộc
+              </div>
+             
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Description</label>
+                <input formControlName="desc" type="text" class="form-control"  aria-describedby="emailHelp">
+                <div class="error"
+                *ngIf="
+                productForm?.get('desc')?.hasError('required') && 
+                (productForm?.get('desc')?.touched||productForm?.get('desc')?.dirty)
+                "
+                >
+                   Trường bắt buộc
+                </div>
+               
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Price</label>
+                <input formControlName="price" type="number" class="form-control"  aria-describedby="emailHelp">
+                <div class="error"
+                *ngIf="
+                productForm?.get('price')?.hasError('pattern') && 
+                (productForm?.get('price')?.touched||productForm?.get('price')?.dirty)
+                "
+                >
+                   Giá phải là số
+                </div>
+                <div class="error"
+                *ngIf="
+                productForm?.get('price')?.hasError('required') && 
+                (productForm?.get('price')?.touched||productForm?.get('price')?.dirty)
+                "
+                >
+                  Trường bắt buộc
+                </div>
+               
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Author</label>
+                <input formControlName="author" type="text" class="form-control"  aria-describedby="emailHelp">
+                <div class="error"
+                *ngIf="
+                productForm?.get('author')?.hasError('required') && 
+                (productForm?.get('author')?.touched||productForm?.get('author')?.dirty)
+                "
+                >
+                   Trường bắt buộc
+                </div>
+               
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Sale</label>
+                <input formControlName="sale" type="text" class="form-control"  aria-describedby="emailHelp">
+                <div class="error"
+                *ngIf="
+                productForm?.get('sale')?.hasError('pattern') && 
+                (productForm?.get('sale')?.touched||productForm?.get('sale')?.dirty)
+                "
+                >
+                   Bắt buộc phải là số
+                </div>
+                <div class="error"
+                *ngIf="
+                productForm?.get('sale')?.hasError('required') && 
+                (productForm?.get('sale')?.touched||productForm?.get('sale')?.dirty)
+                "
+                >
+                   Trường bắt buộc
+                </div>
+               
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Image</label>
+              <input formControlName="img" type="text" class="form-control" id="exampleInputPassword1">
+              <div class="error"
+              *ngIf="
+              productForm?.get('img')?.hasError('required') && 
+              (productForm?.get('img')?.touched||productForm?.get('img')?.dirty)
+              "
+              >
+                 Trường bắt buộc
+              </div>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>

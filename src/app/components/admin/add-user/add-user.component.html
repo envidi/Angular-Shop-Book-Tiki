@@ -1,0 +1,85 @@
+<div class="dashboard d-flex fd">
+    <div class="header-admin">
+        Add user
+    </div>
+    <div class="product-admin">
+        <form (ngSubmit)="onHandleSubmit()" [formGroup]="productForm">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+              <input formControlName="userName" type="text" class="form-control"  aria-describedby="emailHelp">
+              <div class="error"
+              *ngIf="
+              productForm?.get('userName')?.hasError('required') && 
+              (productForm?.get('userName')?.touched||productForm?.get('userName')?.dirty)
+              "
+              >
+                 Trường bắt buộc
+              </div>
+             
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input formControlName="email" type="text" class="form-control"  aria-describedby="emailHelp">
+                <div class="error"
+                *ngIf="
+                productForm?.get('email')?.hasError('required') && 
+                (productForm?.get('email')?.touched||productForm?.get('email')?.dirty)
+                "
+                >
+                   Trường bắt buộc
+                </div>
+                <div class="error"
+                *ngIf="
+                productForm?.get('email')?.hasError('email') && 
+                (productForm?.get('email')?.touched||productForm?.get('email')?.dirty)
+                "
+                >
+                   Định dạng email không đúng
+                </div>
+               
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input formControlName="password" type="text" class="form-control" id="exampleInputPassword1">
+                <div class="error"
+                *ngIf="
+                productForm?.get('password')?.hasError('required') && 
+                (productForm?.get('password')?.touched||productForm?.get('password')?.dirty)
+                "
+                >
+                   Trường bắt buộc
+                </div>
+                <div class="error"
+                *ngIf="
+                productForm?.get('password')?.hasError('minlength') && 
+                (productForm?.get('password')?.touched||productForm?.get('password')?.dirty)
+                "
+                >
+                   Tối thiểu 6 kí tự 
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Role</label>
+                <select class="form-control" formControlName="role" name="" id="">
+                    <option value="admin">Admin</option>
+                    <option value="member">Member</option>
+                </select>
+              
+                <div class="error"
+                *ngIf="
+                productForm?.get('role')?.hasError('required') && 
+                (productForm?.get('role')?.touched||productForm?.get('role')?.dirty)
+                "
+                >
+                  Trường bắt buộc
+                </div>
+               
+              </div>
+              
+             
+           
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
